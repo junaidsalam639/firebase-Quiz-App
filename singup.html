@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>singUp</title>
+    <style>
+                *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container input{
+            width: 300px;
+            height: 37px;
+            border: none;
+            outline: none;
+            padding-left: 20px;
+            border: 1px solid orchid;
+        }
+        .container button {
+            width: 200px;
+            height: 40px;
+            border: none;
+            outline: none;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: orchid;
+            color: #fff;
+        }
+        .container button:hover{
+            background-color: rgba(218, 112, 214, 0.784);
+            color: antiquewhite;
+        }
+        .container a{
+            margin-left: 10px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .container h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input">
+            <h1>SING UP</h1>
+            <input type="text" id="email" placeholder="enter your email"><br><br>
+            <input type="password" id="password" placeholder="enter your password"><br><br>
+            <button id="btn">SING UP</button>
+        </div>
+    </div>
+    <script src="./singup.js" type="module"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZ START</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container button {
+            width: 200px;
+            height: 40px;
+            border: none;
+            outline: none;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: orchid;
+            color: #fff;
+        }
+        .container button:hover{
+            background-color: rgba(218, 112, 214, 0.784);
+            color: antiquewhite;
+        }
+
+        body {
+            background-image: url('https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?cs=srgb&dl=pexels-pixabay-531880.jpg&fm=jpg');
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="btn">
+            <button id="quiz">START QUIZ</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById("quiz").addEventListener('click', () => {
+            window.location.href = './singin.html'
+        })
+    </script>
+</body>
+
+</html>
