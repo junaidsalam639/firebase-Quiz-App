@@ -22,8 +22,12 @@ document.getElementById("btn").addEventListener('click', () => {
     signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
       const user = userCredential.user;
-      alert("Login sucsecfully");
-      window.location.href = './quiz.html'
+      if(user.emailVerified == true){
+        alert("SING IN SUCCESSFULLY");
+        window.location.href = './quiz.html'
+    }else{
+        alert("Please verified Your Email!");
+    }
     })
     .catch((error) => {
         const errorCode = error.code;
@@ -32,3 +36,4 @@ document.getElementById("btn").addEventListener('click', () => {
         window.location.href = './singup.html'
     });
 })
+

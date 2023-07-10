@@ -1,8 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
 import {
-  getAuth,
-  createUserWithEmailAndPassword,
+  getAuth, createUserWithEmailAndPassword, sendEmailVerification
 } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -24,8 +23,16 @@ document.getElementById("btn").addEventListener("click", () => {
 
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
+      alert("SING UP SUCCESFULLY")
+      sendEmailVerification(auth.currentUser)
+        .then(() => {
+          alert("Email Sent Check Your Gmail!");
+        });
+
       const user = userCredential.user;
-      window.location.href = './singin.html'
+      setTimeout(() => {
+        window.location.href = './singin.html'
+      }, 8000);
     })
     .catch((error) => {
       const errorCode = error.code;
