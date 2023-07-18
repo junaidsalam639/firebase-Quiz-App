@@ -1,7 +1,7 @@
 import { auth , app , db } from './firebase.mjs'
 import { signInWithEmailAndPassword , GoogleAuthProvider , signInWithPopup } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
 
-import { onSnapshot , doc } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+
 
 const provider = new GoogleAuthProvider();
 
@@ -53,11 +53,3 @@ document.getElementById("google").addEventListener('click' , (e) => {
   });
   
 })
-
-async function abc(){
-  const unsub = onSnapshot(doc(db, "users", user.uid), (doc) => {
-    console.log("Current data: ", doc.data());
-});
-}
-
-abc();

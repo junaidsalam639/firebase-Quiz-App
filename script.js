@@ -1,3 +1,19 @@
+import {app , auth , db } from './firebase.mjs' 
+import { collection , addDoc , getDocs } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+
+    // firestore se value console me lane ke lye
+    async function abc() {
+        const querySnapshot = await getDocs(collection(db, "users"));
+        querySnapshot.forEach((doc) => {
+            console.log(doc.id, " => ", doc.data());
+            console.log(doc.data().name);
+            console.log(doc.data().lname);
+            console.log(doc.data().number);
+            console.log(doc.data().age);
+            document.getElementById("user").innerHTML = "Welcome To " + doc.data().name + " " + doc.data().lname;
+        });
+    }
+    abc();
 const quizData = [
     {
         question: "Which language runs in a web browser?",
@@ -89,6 +105,8 @@ document.getElementById("submit").addEventListener("click", function () {
         }
     }
 });
+
+
 
 
 

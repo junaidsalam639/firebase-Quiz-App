@@ -65,3 +65,7 @@
     max-width: 95vw;
     overflow: hidden;
   }
+
+.quiz-container .quiz-header h3{
+  text-align: center;
+}
