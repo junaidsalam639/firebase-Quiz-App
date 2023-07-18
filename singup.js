@@ -1,32 +1,37 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
-import {
-  getAuth, createUserWithEmailAndPassword, sendEmailVerification
-} from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAYdVEk6oaTKqbcxZsC8yMzjm0UeHGK0tw",
-  authDomain: "user-9d4be.firebaseapp.com",
-  projectId: "user-9d4be",
-  storageBucket: "user-9d4be.appspot.com",
-  messagingSenderId: "999250386518",
-  appId: "1:999250386518:web:af204579fe0c34131ee5f7",
-  measurementId: "G-VCP3ZRZR58"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth();
-document.getElementById("btn").addEventListener("click", () => {
+import {app , auth , db } from './firebase.mjs'
+  import { createUserWithEmailAndPassword , sendEmailVerification} from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+  
+  import { collection , addDoc} from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+  
+  
+  document.getElementById("btn").addEventListener("click", () => {
+  let name = document.getElementById("name").value;
+  let lname = document.getElementById("lname").value;
+  let number = document.getElementById("number").value;
+  let age = document.getElementById("age").value;
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
+  console.log(name,lname,number,email,password);
 
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       alert("SING UP SUCCESFULLY")
       sendEmailVerification(auth.currentUser)
-        .then(() => {
+        .then(async() => {
           alert("Email Sent Check Your Gmail!");
+          
+          try {
+            const docRef = await addDoc(collection(db, "users"), {
+              name: name,
+              lname: lname,
+              number: number,
+              age: age,
+            });
+            console.log("Document written with ID: ", docRef.id);
+          } catch (e) {
+            console.error("Error adding document: ", e);
+          }
+
         });
 
       const user = userCredential.user;
